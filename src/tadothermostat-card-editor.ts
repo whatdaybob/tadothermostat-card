@@ -1,7 +1,7 @@
 import { LitElement, html, customElement, property, TemplateResult, CSSResult, css } from 'lit-element';
 import { HomeAssistant, fireEvent, LovelaceCardEditor, ActionConfig } from 'custom-card-helpers';
 
-import { BoilerplateCardConfig } from './types';
+import { TadothermostatCardConfig } from './types';
 
 const options = {
   required: {
@@ -44,13 +44,13 @@ const options = {
   },
 };
 
-@customElement('boilerplate-card-editor')
-export class BoilerplateCardEditor extends LitElement implements LovelaceCardEditor {
+@customElement('tadothermostat-card-editor')
+export class TadothermostatCardEditor extends LitElement implements LovelaceCardEditor {
   @property() public hass?: HomeAssistant;
-  @property() private _config?: BoilerplateCardConfig;
+  @property() private _config?: TadothermostatCardConfig;
   @property() private _toggle?: boolean;
 
-  public setConfig(config: BoilerplateCardConfig): void {
+  public setConfig(config: TadothermostatCardConfig): void {
     this._config = config;
   }
 
@@ -116,7 +116,7 @@ export class BoilerplateCardEditor extends LitElement implements LovelaceCardEdi
     }
 
     // You can restrict on domain type
-    const entities = Object.keys(this.hass.states).filter(eid => eid.substr(0, eid.indexOf('.')) === 'sun');
+    const entities = Object.keys(this.hass.states).filter(eid => eid.substr(0, eid.indexOf('.')) === 'climate');
 
     return html`
       <div class="card-config">

@@ -32,7 +32,15 @@ const plugins = [
 
 export default [
   {
-    input: 'src/boilerplate-card.ts',
+    input: 'src/tadothermostat-card.ts',
+    output: {
+      dir: 'dist',
+      format: 'es',
+    },
+    plugins: [...plugins],
+  },
+  {
+    input: 'src/tadothermostatpopup-card.ts',
     output: {
       dir: 'dist',
       format: 'es',
