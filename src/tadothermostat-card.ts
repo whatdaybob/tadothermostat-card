@@ -123,7 +123,8 @@ export class TadothermostatCard extends LitElement {
   }
 
   private parseClimateValues(): [string, string, TemplateResult] {
-    const temperature = this._getAttributeValueForKey('temperature');
+    // const current_temperature = this._getAttributeValueForKey('current_temperature');
+    const target_temperature = this._getAttributeValueForKey('temperature');
     const min_temp = this._getAttributeValueForKey('min_temp');
     const hvac_action = this._getAttributeValueForKey('hvac_action');
     let mode_text = 'No remote access',
@@ -144,14 +145,16 @@ export class TadothermostatCard extends LitElement {
     }
     if (hvac_action == 'heating') {
       let setpoint = 'setpoint-';
-      setpoint = setpoint + temperature.toString().split('.')[0];
-      mode_text = `Heating to ${temperature}°`;
+      setpoint = setpoint + target_temperature.toString().split('.')[0];
+      mode_text = `Heating to ${target_temperature}°`;
       mode_class = 'heating ' + setpoint;
       mode_icon = html``;
     }
     if (hvac_action == 'idle') {
-      mode_text = `Set to ${temperature}°`;
-      mode_class = 'idle';
+      let setpoint = 'setpoint-';
+      setpoint = setpoint + target_temperature.toString().split('.')[0];
+      mode_text = `Set to ${target_temperature}°`;
+      mode_class = 'idle ' + setpoint;
       mode_icon = html``;
     }
     return [mode_text, mode_class, mode_icon];
@@ -164,7 +167,7 @@ export class TadothermostatCard extends LitElement {
     if (temppart == 'small') {
       try {
         tempstr = current_temperature.toString().split('.')[1];
-        tempint = Number(tempstr);
+        tempint = parseInt(tempstr);
         if (isNaN(tempint)) {
           tempint = 0;
         }
@@ -175,7 +178,7 @@ export class TadothermostatCard extends LitElement {
     } else {
       try {
         tempstr = current_temperature.toString().split('.')[0];
-        tempint = Number(tempstr);
+        tempint = parseInt(tempstr);
         if (isNaN(tempint)) {
           tempint = 0;
         }
@@ -190,6 +193,7 @@ export class TadothermostatCard extends LitElement {
     if (!this.hass || !this._config) {
       return '';
     }
+
     const entityId = this._config.entity ? this._config.entity : undefined;
     const stateObj = this._config.entity ? this.hass.states[this._config.entity] : undefined;
 

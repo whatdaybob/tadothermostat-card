@@ -15,6 +15,8 @@
   "author": "Martin Jones <whatdaybob@outlook.com>",
   "license": "MIT",
   "dependencies": {
+    "@ctrl/tinycolor": "^2.6.0",
+    "@thomasloven/round-slider": "^0.3.7",
     "custom-card-helpers": "^1.6.3",
     "home-assistant-js-websocket": "^4.4.0",
     "lit-element": "^2.2.1",
@@ -42,7 +44,7 @@
     "rollup-plugin-terser": "^5.1.2",
     "rollup-plugin-typescript2": "^0.24.3",
     "rollup-plugin-uglify": "^6.0.3",
-    "typescript": "^3.6.4"
+    "typescript": "3.9.5"
   },
   "scripts": {
     "start": "rollup -c --watch",
