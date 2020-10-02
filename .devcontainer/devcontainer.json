@@ -4,13 +4,15 @@
   "image": "ludeeus/container:monster",
   "context": "..",
   "appPort": [
-    "5000:5000",
-    "9123:8123"
+    "5000:5000"
   ],
   "postCreateCommand": "npm install",
   "runArgs": [
     "-v",
     "${env:HOME}${env:USERPROFILE}/.ssh:/tmp/.ssh" // This is added so you can push from inside the container
+  ],
+  "mounts": [
+    "source=try-node-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
   ],
   "extensions": [
     "github.vscode-pull-request-github",
@@ -21,7 +23,13 @@
     "runem.lit-plugin",
     "auchenberg.vscode-browser-preview",
     "davidanson.vscode-markdownlint",
-    "redhat.vscode-yaml"
+    "redhat.vscode-yaml",
+    "mutantdino.resourcemonitor",
+    "pkief.material-icon-theme",
+    "syler.sass-indented",
+    "pranaygp.vscode-css-peek",
+    "ritwickdey.liveserver",
+    "ritwickdey.live-sass"
   ],
   "settings": {
     "files.eol": "\n",
@@ -30,6 +38,16 @@
     "editor.formatOnPaste": false,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "files.trimTrailingWhitespace": true
+    "files.trimTrailingWhitespace": true,
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "files.exclude": {
+      "**/node_modules": true
+    },
+    "search.exclude": {
+      "**/dist": true
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "sass.lint.enable": true,
+    "sass.disableAutoIndent": false,
   }
 }

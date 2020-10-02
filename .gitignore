@@ -1,4 +1,7 @@
 /node_modules/
 /.rpt2_cache/
 package-lock.json
-/dist
+dist/tadothermostat-card-dev.js
+yarn.lock
+src/css/styles.css
+src/css/styles.css.map

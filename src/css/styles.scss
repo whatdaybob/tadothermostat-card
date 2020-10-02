@@ -1,0 +1,105 @@
+ha-card {
+  /* width: 185px; */
+  height: 150px;
+  font-family: Helvetica Neue, Arial, sans-serif;
+  color: white;
+}
+
+.ha-card {
+  & *,
+  & *:after,
+  & *:before {
+    box-sizing: border-box;
+  }
+  &-body {
+    height: 100%;
+    padding: 10px 16px;
+    position: relative;
+  }
+}
+.fg {
+  z-index: 1;
+  position: absolute;
+  bottom: 10px;
+  left: 16px;
+  right: 16px;
+  &-temp * {
+    display: inline-block;
+  }
+  &-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  &-location {
+    font-size: 13px;
+    line-height: 14px;
+  }
+  &-mode {
+    opacity: 0.7;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 12px;
+  }
+  .temp-large,
+  .temp-degree,
+  .temp-small {
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 63px;
+  }
+  .temp-small {
+    left: -22px;
+    position: relative;
+    font-size: 22px;
+    line-height: 23px;
+  }
+}
+.bg {
+  &-svgicon {
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    fill: rgb(104, 131, 150);
+  }
+}
+
+.disconnected .fg-temp {
+  display: none;
+}
+
+$numericstates: (
+  ('disconnected', rgba(55, 100, 149, 0.8), rgba(55, 100, 149, 0.5), rgb(36, 63, 92)),
+  ('off', rgba(159, 179, 194, 0.8), rgba(159, 179, 194, 0.5), rgb(104, 131, 150)),
+  ('heating', rgba(255, 208, 0, 0.8), rgba(255, 208, 0, 0.5), rgb(255, 187, 0)),
+  ('idle', rgba(68, 198, 120, 0.8), rgba(68, 198, 120, 0.5), rgb(23, 171, 105)),
+  ('setpoint-5', rgba(60, 150, 114, 0.8), rgba(60, 150, 114, 0.5), rgb(60, 134, 139)),
+  ('setpoint-6', rgba(60, 153, 115, 0.8), rgba(60, 153, 115, 0.5), rgb(57, 139, 142)),
+  ('setpoint-7', rgba(60, 158, 116, 0.8), rgba(60, 158, 116, 0.5), rgb(54, 144, 143)),
+  ('setpoint-8', rgba(61, 162, 117, 0.8), rgba(61, 162, 117, 0.5), rgb(51, 147, 142)),
+  ('setpoint-9', rgba(61, 166, 117, 0.8), rgba(61, 166, 117, 0.5), rgb(48, 149, 140)),
+  ('setpoint-10', rgba(61, 170, 118, 0.8), rgba(61, 170, 118, 0.5), rgb(45, 152, 138)),
+  ('setpoint-11', rgba(62, 174, 118, 0.8), rgba(62, 174, 118, 0.5), rgb(42, 154, 135)),
+  ('setpoint-12', rgba(62, 178, 119, 0.8), rgba(62, 178, 119, 0.5), rgb(40, 157, 132)),
+  ('setpoint-13', rgba(62, 182, 119, 0.8), rgba(62, 182, 119, 0.5), rgb(37, 159, 129)),
+  ('setpoint-14', rgba(62, 187, 119, 0.8), rgba(62, 187, 119, 0.5), rgb(34, 162, 125)),
+  ('setpoint-15', rgba(62, 191, 119, 0.8), rgba(62, 191, 119, 0.5), rgb(31, 164, 120)),
+  ('setpoint-16', rgba(63, 194, 119, 0.8), rgba(63, 194, 119, 0.5), rgb(28, 166, 116)),
+  ('setpoint-17', rgba(66, 196, 120, 0.8), rgba(66, 196, 120, 0.5), rgb(26, 169, 110)),
+  ('setpoint-18', rgba(68, 198, 120, 0.8), rgba(68, 198, 120, 0.5), rgb(23, 171, 105)),
+  ('setpoint-19', rgba(255, 208, 0, 0.8), rgba(255, 208, 0, 0.5), rgb(255, 187, 0)),
+  ('setpoint-20', rgba(255, 197, 0, 0.8), rgba(255, 197, 0, 0.5), rgb(255, 170, 0)),
+  ('setpoint-21', rgba(255, 186, 0, 0.8), rgba(255, 186, 0, 0.5), rgb(255, 153, 0)),
+  ('setpoint-22', rgba(255, 174, 0, 0.8), rgba(255, 174, 0, 0.5), rgb(255, 136, 0)),
+  ('setpoint-23', rgba(255, 163, 0, 0.8), rgba(255, 163, 0, 0.5), rgb(255, 119, 0)),
+  ('setpoint-24', rgba(255, 152, 0, 0.8), rgba(255, 152, 0, 0.5), rgb(255, 102, 0)),
+  ('setpoint-25', rgba(255, 140, 0, 0.8), rgba(255, 140, 0, 0.5), rgb(255, 85, 0))
+);
+
+@each $class, $from, $to, $stop in $numericstates {
+  .#{$class} {
+    background: radial-gradient(circle farthest-side at left top, $from, $to), $stop;
+  }
+}

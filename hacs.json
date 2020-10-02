@@ -1,5 +1,8 @@
 {
-    "name": "Tadothermostat Card",
+    "name": "Tado Thermostat Card",
     "render_readme": true,
-    "filename": "tadothermostat-card.js"
+    "filename": "tadothermostat-card.js",
+    "country": [
+        "GB"
+    ]
 }
