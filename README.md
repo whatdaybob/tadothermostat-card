@@ -54,6 +54,6 @@ resources:
 
 <!-- markdownlint-disable MD033 -->
 
-<a href="https://github.com/whatdaybob/tadothermostat-card/blob/master/media/screenshots/main.png" target="_blank"><img src="https://github.com/whatdaybob/tadothermostat-popup-card/blob/master/media/screenshots/main_page.png" alt="Screenshot of thermostats" style="max-width: 100% !important;height: 500px !important;" ></a>
+<a href="https://github.com/whatdaybob/tadothermostat-card/blob/master/media/screenshots/main.png" target="_blank"><img src="https://github.com/whatdaybob/tadothermostat-card/blob/master/media/screenshots/main_page.png" alt="Screenshot of thermostats" style="max-width: 100% !important;height: 500px !important;" ></a>
 
 <!-- markdownlint-enable MD033 -->
