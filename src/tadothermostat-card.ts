@@ -140,7 +140,7 @@ export class TadothermostatCard extends LitElement {
     if (temppart == 'small') {
       try {
         tempstr = current_temperature.toString().split('.')[1];
-        tempint = parseInt(tempstr);
+        tempint = parseInt(tempstr, 10);
         if (isNaN(tempint)) {
           tempint = 0;
         }
@@ -151,7 +151,7 @@ export class TadothermostatCard extends LitElement {
     } else {
       try {
         tempstr = current_temperature.toString().split('.')[0];
-        tempint = parseInt(tempstr);
+        tempint = parseInt(tempstr, 10);
         if (isNaN(tempint)) {
           tempint = 0;
         }
@@ -173,8 +173,8 @@ export class TadothermostatCard extends LitElement {
 
     try {
       tempstr = current_temperature.toString().split('.');
-      templarge = parseInt(tempstr[0]);
-      tempsmall = parseInt(tempstr[1]);
+      templarge = parseInt(tempstr[0], 10);
+      tempsmall = parseInt(tempstr[1], 10);
       if (isNaN(tempsmall)) {
         tempsmall = 0;
       }
